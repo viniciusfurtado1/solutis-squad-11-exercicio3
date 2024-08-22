@@ -33,7 +33,7 @@ public class Main {
 
         if (media < 7) {
             System.out.println("\nAluno reprovado por média.");
-        } else if (porcFaltas < 25) {
+        } else if (porcFaltas > 25) {
             System.out.println("\nAluno reprovado por faltas.");
         } else {
             System.out.println("\nAluno aprovado.");
