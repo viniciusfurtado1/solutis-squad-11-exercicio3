@@ -20,11 +20,11 @@ public class Relatorio {
     }
 
     public static boolean ehHomem(Paciente paciente) {
-        return paciente != null && paciente.getSexo().equalsIgnoreCase("homem");
+        return paciente != null && paciente.getSexo().equalsIgnoreCase("masculino");
     }
 
     public static boolean ehMulher(Paciente paciente) {
-        return paciente != null && paciente.getSexo().equalsIgnoreCase("mulher");
+        return paciente != null && paciente.getSexo().equalsIgnoreCase("feminino");
     }
 
     public static int obterQuantidadeDePacientes(List<Paciente> pacientes) {
@@ -97,7 +97,7 @@ public class Relatorio {
         int homens = 0, mulheres = 0;
         for(Paciente paciente : pacientes) {
             if(ehHomem(paciente)) homens++;
-            else mulheres++;
+            else if(ehMulher(paciente)) mulheres++;
         }
 
         return String.format("Há %s homens e %s mulheres na lista de pacientes.", homens, mulheres);

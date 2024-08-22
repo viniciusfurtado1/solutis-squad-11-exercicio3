@@ -29,16 +29,16 @@ public class Main {
         Paciente paciente = new Paciente();
         paciente.setNome(nome);
 
-        System.out.print("Informe o sexo: ");
+        System.out.print("Informe o sexo (ex: masculino, feminino): ");
         paciente.setSexo(scanner.next());
 
-        System.out.print("Informe o peso: ");
+        System.out.print("Informe o peso (ex: 81,2): ");
         paciente.setPeso(scanner.nextDouble());
 
         System.out.print("Informe a idade: ");
         paciente.setIdade(scanner.nextInt());
 
-        System.out.print("Informe a altura: ");
+        System.out.print("Informe a altura (ex: 1,83): ");
         paciente.setAltura(scanner.nextDouble());
 
         return paciente;
