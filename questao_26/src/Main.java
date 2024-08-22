@@ -19,16 +19,7 @@ public class Main {
 		System.out.println("Digite o horário 2: ");
 		t2 = LocalTime.parse(sc.next());
 		
-		int timeInSeconds = differenceTime(t1, t2);
-		
-		String timeString = String.format(
-				"%02d:%02d:%02d", 
-				timeInSeconds/3600,
-				(timeInSeconds%3600)/60, 
-				timeInSeconds%60
-				);
-		
-		System.out.println("Diferença de tempo: " + timeString);
+		System.out.println("Diferença de tempo: " + differenceTime(t1, t2) + " segundos.");
 		
 		sc.close();
 		
