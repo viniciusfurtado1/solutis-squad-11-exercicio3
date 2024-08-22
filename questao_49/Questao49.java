@@ -3,7 +3,7 @@ package lista3.questao_49;
 public class Questao49 {
 
     public static void main(String[] args) {
-        long posterior = 1, anterior = 0;
+        long posterior = 1, anterior = 1;
 
         System.out.print(anterior + ", " + posterior);
 
