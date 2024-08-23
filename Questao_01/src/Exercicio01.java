@@ -1,3 +1,5 @@
+package Questao_01.src;
+
 import java.util.Scanner;
 
 public class Exercicio01 {

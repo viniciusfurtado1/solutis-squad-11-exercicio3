@@ -1,4 +1,4 @@
-package lista3.questao_30;
+package questao_30;
 
 import java.util.Scanner;
 

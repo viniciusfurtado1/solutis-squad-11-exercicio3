@@ -1,3 +1,5 @@
+package questao_52.src;
+
 import java.math.BigDecimal;
 
 public class Main {

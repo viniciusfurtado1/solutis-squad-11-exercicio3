@@ -1,4 +1,4 @@
-package lista3.questao_49;
+package questao_49;
 
 public class Questao49 {
 

@@ -1,3 +1,5 @@
+package questao_45.src;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
