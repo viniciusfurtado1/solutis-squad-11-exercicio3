@@ -1,4 +1,4 @@
-﻿# Lista 03 - Divisão de questões pela equipe:
+# Lista 03 - Divisão de questões pela equipe:
 
 Vinicius: Questões [2, 5, 22, 21, 25, 14, 43, 53, 56, 37, 46, 60]
 
