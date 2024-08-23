@@ -1,30 +1,53 @@
+import java.util.Scanner;
+
 public class Questao16 {
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        
-        String[] meses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
-        int[] ultimoDia = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        
-        System.out.print("Digite o dia de nascimento: ");
-        int dia = scanner.nextInt();
+        int dia, mesNum;
+        String[] mes = {"Janeiro", "Fevereiro","Março", "Abril",
+                "Maio","Junho", "Julho", "Agosto",
+                "Setembro", "Outbro", "Novembro", "Dezembro"};
 
-        System.out.print("Digite o mês de nascimento (1-12): ");
-        int mes = scanner.nextInt();
-       
-        if (mes < 1 || mes > 12) {
-            System.out.println("Mês inválido.");
-        } else {
-           
-            if (dia < 1 || dia > ultimoDia[mes - 1]) {
-                System.out.println("Dia inválido para o mês de " + meses[mes - 1] + ".");
-            } else {
-                System.out.println("Data válida: " + dia + " de " + meses[mes - 1] + ".");
-            }
+        System.out.print("Digite um dia: ");
+        dia = sc.nextInt();
+
+        System.out.print("Digite um numero correspondente ao mes: ");
+        mesNum = sc.nextInt();
+
+        if(validarData(dia, mesNum)){
+
+            System.out.println("Dia ok");
+            System.out.println(mes[mesNum-1]);
+
+            System.out.printf("Você nasceu no %dº trimestre.", getTrimestre(mesNum));
         }
-
-        scanner.close();
+        else System.out.println("Dia invalido");
 
     }
+
+    public static boolean validarData(int dia, int mes) {
+        if(mes < 1 || mes > 12) return false;
+        else return dia >= 1 && dia <= diasDoMes(mes);
+    }
+
+    public static int diasDoMes(int mes) {
+        return switch (mes) {
+            case 2 -> 28;
+            case 4, 6, 9, 11 -> 30;
+            default -> 31;
+        };
+    }
+
+    public static int getTrimestre(int mes) {
+
+        if (mes >= 1 && mes <= 3) return 1;
+        else if (mes >= 4 && mes <= 6) return 2;
+        else if (mes >= 7 && mes <= 9) return 3;
+         else return 4;
+
+    }
+
 }
