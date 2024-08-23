@@ -1,4 +1,4 @@
-package Questao_01.src;
+package questao_01.src;
 
 import java.util.Scanner;
 
