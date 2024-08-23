@@ -1,3 +1,5 @@
+package questao_36;
+
 import java.util.Scanner;
 
 public class Questao36 {

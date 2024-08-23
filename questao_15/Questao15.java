@@ -1,6 +1,8 @@
+package questao_15;
+
 import java.util.Scanner;
 
-public class Questao16 {
+public class Questao15 {
 
     public static void main(String[] args) {
 
@@ -8,8 +10,8 @@ public class Questao16 {
 
         int dia, mesNum;
         String[] mes = {"Janeiro", "Fevereiro","Março", "Abril",
-                "Maio","Junho", "Julho", "Agosto",
-                "Setembro", "Outbro", "Novembro", "Dezembro"};
+                        "Maio","Junho", "Julho", "Agosto",
+                        "Setembro", "Outbro", "Novembro", "Dezembro"};
 
         System.out.print("Digite um dia: ");
         dia = sc.nextInt();
@@ -18,11 +20,8 @@ public class Questao16 {
         mesNum = sc.nextInt();
 
         if(validarData(dia, mesNum)){
-
             System.out.println("Dia ok");
             System.out.println(mes[mesNum-1]);
-
-            System.out.printf("Você nasceu no %dº trimestre.", getTrimestre(mesNum));
         }
         else System.out.println("Dia invalido");
 
@@ -40,14 +39,4 @@ public class Questao16 {
             default -> 31;
         };
     }
-
-    public static int getTrimestre(int mes) {
-
-        if (mes >= 1 && mes <= 3) return 1;
-        else if (mes >= 4 && mes <= 6) return 2;
-        else if (mes >= 7 && mes <= 9) return 3;
-         else return 4;
-
-    }
-
 }

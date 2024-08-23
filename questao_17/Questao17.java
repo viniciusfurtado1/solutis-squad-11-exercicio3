@@ -1,15 +1,14 @@
-import java.time.LocalDate;
-import java.time.Period;
+package questao_17;
+
 import java.util.Scanner;
 
-public class Questao18 {
+public class Questao17 {
 
     public static void main(String[] args) {
 
-        LocalDate dataNascimento, dataAtual = LocalDate.now();
         Scanner sc = new Scanner(System.in);
 
-        int dia, mesNum, ano;
+        int dia, mesNum;
         String[] mes = {"Janeiro", "Fevereiro","Março", "Abril",
                 "Maio","Junho", "Julho", "Agosto",
                 "Setembro", "Outbro", "Novembro", "Dezembro"};
@@ -20,11 +19,6 @@ public class Questao18 {
         System.out.print("Digite um numero correspondente ao mes: ");
         mesNum = sc.nextInt();
 
-        System.out.print("Digite um ano: ");
-        ano = sc.nextInt();
-
-        dataNascimento = LocalDate.of(ano, mesNum, dia);
-
         if(validarData(dia, mesNum)){
 
             System.out.println("Dia ok");
@@ -32,11 +26,6 @@ public class Questao18 {
 
             System.out.printf("Você nasceu no %dº trimestre. ", getTrimestre(mesNum));
             System.out.println("Seu signo é " + signos(dia, mesNum));
-
-            Period intervaloTempo = Period.between(dataNascimento, dataAtual);
-
-            System.out.println("Você tem " + intervaloTempo.getYears() + " anos.");
-
 
         }
         else System.out.println("Dia invalido");

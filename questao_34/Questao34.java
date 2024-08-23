@@ -1,3 +1,5 @@
+package questao_34;
+
 public class Questao34 {
     public static void main(String[] args) {
         // Loop de 10 até 200

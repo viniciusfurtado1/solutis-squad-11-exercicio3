@@ -1,3 +1,5 @@
+package questao_59;
+
 public class Questao59 {
     public static void main(String[] args) {
         for (int i = 1; i <= 10; i++) {

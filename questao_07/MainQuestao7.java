@@ -1,4 +1,4 @@
-package questao_7;
+package questao_07;
 
 import java.util.Scanner;
 public class MainQuestao7 {

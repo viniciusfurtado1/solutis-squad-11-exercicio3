@@ -1,6 +1,8 @@
+package questao_16;
+
 import java.util.Scanner;
 
-public class Questao17 {
+public class Questao16 {
 
     public static void main(String[] args) {
 
@@ -22,9 +24,7 @@ public class Questao17 {
             System.out.println("Dia ok");
             System.out.println(mes[mesNum-1]);
 
-            System.out.printf("Você nasceu no %dº trimestre. ", getTrimestre(mesNum));
-            System.out.println("Seu signo é " + signos(dia, mesNum));
-
+            System.out.printf("Você nasceu no %dº trimestre.", getTrimestre(mesNum));
         }
         else System.out.println("Dia invalido");
 
@@ -50,24 +50,6 @@ public class Questao17 {
         else if (mes >= 7 && mes <= 9) return 3;
          else return 4;
 
-    }
-
-    public static String signos(int dia, int mes) {
-        return switch (mes) {
-            case 1 -> (dia >= 20) ? "Aquário" : "Capricórnio";
-            case 2 -> (dia >= 19) ? "Peixes" : "Aquário";
-            case 3 -> (dia >= 21) ? "Áries" : "Peixes";
-            case 4 -> (dia >= 20) ? "Touro" : "Áries";
-            case 5 -> (dia >= 21) ? "Gêmeos" : "Touro";
-            case 6 -> (dia >= 21) ? "Câncer" : "Gêmeos";
-            case 7 -> (dia >= 23) ? "Leão" : "Câncer";
-            case 8 -> (dia >= 23) ? "Virgem" : "Leão";
-            case 9 -> (dia >= 23) ? "Libra" : "Virgem";
-            case 10 -> (dia >= 23) ? "Escorpião" : "Libra";
-            case 11 -> (dia >= 22) ? "Sagitário" : "Escorpião";
-            case 12 -> (dia >= 22) ? "Capricórnio" : "Sagitário";
-            default -> "Signo inválido";
-        };
     }
 
 }

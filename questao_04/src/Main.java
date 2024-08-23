@@ -1,3 +1,5 @@
+package questao_04.src;
+
 import java.util.Scanner;
 
 public class Main {
