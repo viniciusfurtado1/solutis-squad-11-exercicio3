@@ -1,43 +1,73 @@
 import java.util.Scanner;
 
 public class Questao17 {
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
+        int dia, mesNum;
+        String[] mes = {"Janeiro", "Fevereiro","Março", "Abril",
+                "Maio","Junho", "Julho", "Agosto",
+                "Setembro", "Outbro", "Novembro", "Dezembro"};
 
-        String[] meses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
-        int[] ultimoDia = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        System.out.print("Digite um dia: ");
+        dia = sc.nextInt();
 
-        System.out.print("Digite o dia de nascimento: ");
-        int dia = scanner.nextInt();
+        System.out.print("Digite um numero correspondente ao mes: ");
+        mesNum = sc.nextInt();
 
-        System.out.print("Digite o mês de nascimento (1-12): ");
-        int mes = scanner.nextInt();
+        if(validarData(dia, mesNum)){
 
-        if (mes < 1 || mes > 12) {
-            System.out.println("Mês inválido.");
-        } else {
+            System.out.println("Dia ok");
+            System.out.println(mes[mesNum-1]);
 
-            if (dia < 1 || dia > ultimoDia[mes - 1]) {
-                System.out.println("Dia inválido para o mês de " + meses[mes - 1] + ".");
-            } else {
-                System.out.println("Data válida: " + dia + " de " + meses[mes - 1] + ".");
-            }
+            System.out.printf("Você nasceu no %dº trimestre. ", getTrimestre(mesNum));
+            System.out.println("Seu signo é " + signos(dia, mesNum));
+
         }
-        String trimestre;
-        if (mes >= 1 && mes <= 3) {
-            trimestre = "1º trimestre";
-        } else if (mes >= 4 && mes <= 6) {
-            trimestre = "2º trimestre";
-        } else if (mes >= 7 && mes <= 9) {
-            trimestre = "3º trimestre";
-        } else {
-            trimestre = "4º trimestre";
-        }
-        
-        System.out.println("Você nasceu no " + trimestre + ".");
+        else System.out.println("Dia invalido");
 
-        scanner.close();
     }
+
+    public static boolean validarData(int dia, int mes) {
+        if(mes < 1 || mes > 12) return false;
+        else return dia >= 1 && dia <= diasDoMes(mes);
+    }
+
+    public static int diasDoMes(int mes) {
+        return switch (mes) {
+            case 2 -> 28;
+            case 4, 6, 9, 11 -> 30;
+            default -> 31;
+        };
+    }
+
+    public static int getTrimestre(int mes) {
+
+        if (mes >= 1 && mes <= 3) return 1;
+        else if (mes >= 4 && mes <= 6) return 2;
+        else if (mes >= 7 && mes <= 9) return 3;
+         else return 4;
+
+    }
+
+    public static String signos(int dia, int mes) {
+        return switch (mes) {
+            case 1 -> (dia >= 20) ? "Aquário" : "Capricórnio";
+            case 2 -> (dia >= 19) ? "Peixes" : "Aquário";
+            case 3 -> (dia >= 21) ? "Áries" : "Peixes";
+            case 4 -> (dia >= 20) ? "Touro" : "Áries";
+            case 5 -> (dia >= 21) ? "Gêmeos" : "Touro";
+            case 6 -> (dia >= 21) ? "Câncer" : "Gêmeos";
+            case 7 -> (dia >= 23) ? "Leão" : "Câncer";
+            case 8 -> (dia >= 23) ? "Virgem" : "Leão";
+            case 9 -> (dia >= 23) ? "Libra" : "Virgem";
+            case 10 -> (dia >= 23) ? "Escorpião" : "Libra";
+            case 11 -> (dia >= 22) ? "Sagitário" : "Escorpião";
+            case 12 -> (dia >= 22) ? "Capricórnio" : "Sagitário";
+            default -> "Signo inválido";
+        };
+    }
+
 }
