@@ -1,84 +1,86 @@
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Scanner;
 
 public class Questao18 {
+
     public static void main(String[] args) {
 
+        LocalDate dataNascimento, dataAtual = LocalDate.now();
+        Scanner sc = new Scanner(System.in);
 
-        Scanner scanner = new Scanner(System.in);
+        int dia, mesNum, ano;
+        String[] mes = {"Janeiro", "Fevereiro","Março", "Abril",
+                "Maio","Junho", "Julho", "Agosto",
+                "Setembro", "Outbro", "Novembro", "Dezembro"};
 
-        // Meses com seus respectivos dias máximos
-        String[] meses = {
-                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-                "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        System.out.print("Digite um dia: ");
+        dia = sc.nextInt();
+
+        System.out.print("Digite um numero correspondente ao mes: ");
+        mesNum = sc.nextInt();
+
+        System.out.print("Digite um ano: ");
+        ano = sc.nextInt();
+
+        dataNascimento = LocalDate.of(ano, mesNum, dia);
+
+        if(validarData(dia, mesNum)){
+
+            System.out.println("Dia ok");
+            System.out.println(mes[mesNum-1]);
+
+            System.out.printf("Você nasceu no %dº trimestre. ", getTrimestre(mesNum));
+            System.out.println("Seu signo é " + signos(dia, mesNum));
+
+            Period intervaloTempo = Period.between(dataNascimento, dataAtual);
+
+            System.out.println("Você tem " + intervaloTempo.getYears() + " anos.");
+
+
+        }
+        else System.out.println("Dia invalido");
+
+    }
+
+    public static boolean validarData(int dia, int mes) {
+        if(mes < 1 || mes > 12) return false;
+        else return dia >= 1 && dia <= diasDoMes(mes);
+    }
+
+    public static int diasDoMes(int mes) {
+        return switch (mes) {
+            case 2 -> 28;
+            case 4, 6, 9, 11 -> 30;
+            default -> 31;
         };
-        int[] diasPorMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-
-        // Receber o número do dia e do mês
-        System.out.print("Digite o dia de nascimento: ");
-        int dia = scanner.nextInt();
-
-        System.out.print("Digite o mês de nascimento (1-12): ");
-        int mes = scanner.nextInt();
-
-        // Verificar se o mês é válido
-        if (mes < 1 || mes > 12) {
-            System.out.println("Mês inválido.");
-        } else {
-            // Verificar se o dia é válido para o mês dado
-            if (dia < 1 || dia > diasPorMes[mes - 1]) {
-                System.out.println("Dia inválido para o mês de " + meses[mes - 1] + ".");
-            } else {
-                // Informar a data válida
-                System.out.println("Data válida: " + dia + " de " + meses[mes - 1] + ".");
-
-                // Determinar o trimestre
-                String trimestre;
-                if (mes >= 1 && mes <= 3) {
-                    trimestre = "1º trimestre";
-                } else if (mes >= 4 && mes <= 6) {
-                    trimestre = "2º trimestre";
-                } else if (mes >= 7 && mes <= 9) {
-                    trimestre = "3º trimestre";
-                } else {
-                    trimestre = "4º trimestre";
-                }
-                
-                System.out.println("Você nasceu no " + trimestre + ".");
-              
-                String signo = signos(dia, mes);
-                System.out.println("Seu signo é: " + signo + ".");
-            }
-        }
-        scanner.close();
     }
+
+    public static int getTrimestre(int mes) {
+
+        if (mes >= 1 && mes <= 3) return 1;
+        else if (mes >= 4 && mes <= 6) return 2;
+        else if (mes >= 7 && mes <= 9) return 3;
+         else return 4;
+
+    }
+
     public static String signos(int dia, int mes) {
-        switch (mes) {
-            case 1:  // Janeiro
-                return (dia >= 20) ? "Aquário" : "Capricórnio";
-            case 2:  // Fevereiro
-                return (dia >= 19) ? "Peixes" : "Aquário";
-            case 3:  // Março
-                return (dia >= 21) ? "Áries" : "Peixes";
-            case 4:  // Abril
-                return (dia >= 20) ? "Touro" : "Áries";
-            case 5:  // Maio
-                return (dia >= 21) ? "Gêmeos" : "Touro";
-            case 6:  // Junho
-                return (dia >= 21) ? "Câncer" : "Gêmeos";
-            case 7:  // Julho
-                return (dia >= 23) ? "Leão" : "Câncer";
-            case 8:  // Agosto
-                return (dia >= 23) ? "Virgem" : "Leão";
-            case 9:  // Setembro
-                return (dia >= 23) ? "Libra" : "Virgem";
-            case 10: // Outubro
-                return (dia >= 23) ? "Escorpião" : "Libra";
-            case 11: // Novembro
-                return (dia >= 22) ? "Sagitário" : "Escorpião";
-            case 12: // Dezembro
-                return (dia >= 22) ? "Capricórnio" : "Sagitário";
-            default:
-                return "Signo inválido";
-        }
+        return switch (mes) {
+            case 1 -> (dia >= 20) ? "Aquário" : "Capricórnio";
+            case 2 -> (dia >= 19) ? "Peixes" : "Aquário";
+            case 3 -> (dia >= 21) ? "Áries" : "Peixes";
+            case 4 -> (dia >= 20) ? "Touro" : "Áries";
+            case 5 -> (dia >= 21) ? "Gêmeos" : "Touro";
+            case 6 -> (dia >= 21) ? "Câncer" : "Gêmeos";
+            case 7 -> (dia >= 23) ? "Leão" : "Câncer";
+            case 8 -> (dia >= 23) ? "Virgem" : "Leão";
+            case 9 -> (dia >= 23) ? "Libra" : "Virgem";
+            case 10 -> (dia >= 23) ? "Escorpião" : "Libra";
+            case 11 -> (dia >= 22) ? "Sagitário" : "Escorpião";
+            case 12 -> (dia >= 22) ? "Capricórnio" : "Sagitário";
+            default -> "Signo inválido";
+        };
     }
+
 }
