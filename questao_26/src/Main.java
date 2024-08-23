@@ -1,3 +1,5 @@
+package questao_26.src;
+
 import java.time.LocalTime;
 import java.util.Scanner;
 

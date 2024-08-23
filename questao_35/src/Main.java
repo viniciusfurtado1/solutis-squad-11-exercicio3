@@ -1,3 +1,5 @@
+package questao_35.src;
+
 import java.util.Random;
 import java.util.Scanner;
 

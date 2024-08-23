@@ -1,4 +1,4 @@
-package lista3.questao_47;
+package questao_47;
 
 public class Paciente {
 

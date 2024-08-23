@@ -1,4 +1,4 @@
-package lista3.questao_30;
+package questao_30;
 
 class Ponto {
     int x, y;

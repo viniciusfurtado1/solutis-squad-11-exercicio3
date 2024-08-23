@@ -1,3 +1,5 @@
+package questao_42.src;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;

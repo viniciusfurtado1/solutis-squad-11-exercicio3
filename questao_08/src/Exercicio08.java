@@ -1,3 +1,5 @@
+package questao_08.src;
+
 public class Exercicio08 {
     public static void main(String[] args) {
         int num, den;
