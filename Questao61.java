@@ -3,7 +3,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Main {
+public class Questao61 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String piramide = "*";
